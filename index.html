@@ -9,7 +9,7 @@
   </head>
   <body class="root">
     <div class="header">
-      <img class="header__logo" src="./images/logo.svg" />
+      <img class="header__logo" alt="Лого" src="./images/logo.svg" />
     </div>
     <main class="content">
       <section class="profile">
@@ -20,7 +20,6 @@
           <div class="profile__row">
             <h1 class="profile__name">Жак-Ив Кусто</h1>
             <button id="profileEdit" class="profile__edit"></button>
-				
           </div>
           <p class="profile__description">Исследователь океана</p>
         </div>
@@ -32,21 +31,21 @@
 
       <section class="cards">
         <div class="card">
-          <img class="card__img" src="./images/dombai.png" />
+          <img class="card__img" alt="Домбай" src="./images/dombai.png" />
           <div class="card__desc">
             <h2 class="card__title">Карачаевск</h2>
             <button class="card__like card__like-active"></button>
           </div>
         </div>
         <div class="card">
-          <img class="card__img" src="./images/elbrus.png" />
+          <img class="card__img" alt="Гора Эльбрус" src="./images/elbrus.png" />
           <div class="card__desc">
             <h2 class="card__title">Гора Эльбрус</h2>
             <button class="card__like card__like-active"></button>
           </div>
         </div>
         <div class="card">
-          <img class="card__img" src="./images/karachaev.jpg" />
+          <img class="card__img" alt="Карачаево-Черкесия" src="./images/karachaev.jpg" />
           <div class="card__desc">
             <h2 class="card__title">Домбай</h2>
             <button class="card__like card__like-active"></button>
@@ -54,21 +53,21 @@
         </div>
 
         <div class="card">
-          <img class="card__img" src="./images/elbrus.png" />
+          <img class="card__img" alt="Гора Эльбрус" src="./images/elbrus.png" />
           <div class="card__desc">
             <h2 class="card__title">Гора Эльбрус</h2>
             <button class="card__like card__like-active"></button>
           </div>
         </div>
         <div class="card">
-          <img class="card__img" src="./images/karachaev.jpg" />
+          <img class="card__img" alt="Карачаево-Черкесия" src="./images/karachaev.jpg" />
           <div class="card__desc">
             <h2 class="card__title">Домбай</h2>
-				<button class="card__like card__like-active"></button>
+            <button class="card__like card__like-active"></button>
           </div>
         </div>
         <div class="card">
-          <img class="card__img" src="./images/dombai.png" />
+          <img class="card__img" alt="Домбай" src="./images/dombai.png" />
           <div class="card__desc">
             <h2 class="card__title">Карачаево-Черкесия</h2>
             <button class="card__like card__like-active"></button>
@@ -80,20 +79,27 @@
       <p class="footer__text">© 2022 Mesto Russia</p>
     </footer>
 
-    <div id="popup" class="popup ">
+    <div id="popup" class="popup">
       <div class="popup__body">
         <div class="popup__content">
-          <button  class="popup__close"></button>
-			 <div class="popup__title">Редактировать профиль</div>
-			 <form name="edit-form" class="popup__form" novalidate>
-				 <div>
-            <input type="text" name="user-name" id="name" placeholder="Имя"  class="popup__input-name"/>
-				 </div>
-				 <div>
-            <input type="text" name="user-work"  placeholder="Работа" class="popup__input-job"  />
-				 </div>
-          <button  class="popup__submit">Сохранить</button>
-       </form>
+          <button class="popup__close"></button>
+          <div class="popup__title">Редактировать профиль</div>
+          <form name="edit-form" class="popup__form" novalidate>
+            <div>
+              <input
+                type="text"
+                name="user-name"
+                id="name"
+                placeholder="Имя"
+                class="popup__input-name"
+              />
+            </div>
+            <div>
+              <input type="text" name="user-work" placeholder="Работа" class="popup__input-job" />
+            </div>
+            <button class="popup__submit">Сохранить</button>
+          </form>
+        </div>
       </div>
     </div>
 
