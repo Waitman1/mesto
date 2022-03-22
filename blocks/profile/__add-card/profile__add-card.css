@@ -9,6 +9,7 @@
   align-self: center;
   box-sizing: border-box;
   background-size: 22px 22px;
+  border-radius: 2px;
 }
 
 .profile__add-card:hover {
