@@ -20,7 +20,6 @@
 
 @import '../blocks/popup/popup.css';
 @import '../blocks/popup/__close/popup__close.css';
-@import '../blocks/popup/__body/popup__body.css';
 @import '../blocks/popup/__content/popup__content.css';
 @import '../blocks/popup/__form/popup__form.css';
 @import '../blocks/popup/__input/popup__input.css';
