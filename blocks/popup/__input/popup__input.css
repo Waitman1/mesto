@@ -10,6 +10,12 @@
   margin-top: 30px;
 }
 
+@media screen and (max-width: 475px) {
+  .popup__input {
+    padding-bottom: 8px;
+  }
+}
+
 .popup__input:first-of-type {
   margin-top: 0;
 }
