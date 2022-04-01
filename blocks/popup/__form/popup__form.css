@@ -1,9 +1,14 @@
 .popup__form {
-  max-width: 430px;
+	display: block;
+	margin: 34px auto 37px;
+	width: 358px;
+	background-color: white;
+	border-radius: 10px;
+	font-family: 'Inter', sans-serif;
 }
 
-@media screen and (max-width: 475px) {
-  .popup__form {
-    max-width: 100%;
-  }
+@media screen and (max-width: 540px) {
+	.popup__form {
+		 width: 238px;
+	}
 }

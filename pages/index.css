@@ -4,13 +4,15 @@
 
 @import '../blocks/root/root.css';
 
-@import '../blocks/card/card.css';
-@import '../blocks/card/__desc/card__desc.css';
-@import '../blocks/card/__img/card__img.css';
-@import '../blocks/card/__like/card__like.css';
-@import '../blocks/card/__title/card__title.css';
-
-@import '../blocks/cards/cards.css';
+@import '../blocks/elements/elements.css';
+@import '../blocks/elements/__cards/elements__cards.css';
+@import '../blocks/elements/__card/elements__card.css';
+@import '../blocks/elements/__card-title/elements__card-title.css';
+@import '../blocks/elements/__card-like/elements__card-like.css';
+@import '../blocks/elements/__card-like/__card-like_active/elements__card-like-active.css';
+@import '../blocks/elements/__card-img/elements__card-img.css';
+@import '../blocks/elements/__card-delete/elements__card-delete.css';
+@import '../blocks/elements/__card-zoom-button/elements__card-zoom-button.css';
 
 @import '../blocks/footer/footer.css';
 @import '../blocks/footer/__text/footer__text.css';
@@ -37,3 +39,9 @@
 @import '../blocks/profile/__name/profile__name.css';
 @import '../blocks/profile/__photo/profile__photo.css';
 @import '../blocks/profile/__row/profile__row.css';
+
+@import '../blocks/zoom-picture/zoom-picture.css';
+@import '../blocks/zoom-picture/__content/zoom-picture__content.css';
+@import '../blocks/zoom-picture/__card/zoom-picture__card.css';
+@import '../blocks/zoom-picture/__card-title/zoom-picture__card-title.css';
+
