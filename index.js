@@ -1,21 +1,21 @@
-let editButton = document.querySelector('.profile__edit');
-let addButton = document.querySelector('.profile__add-card');
-let editPopup = document.querySelector('.edit-popup');
-let addPopup = document.querySelector('.add-popup');
-let zoomPopup = document.querySelector('.zoom-picture');
-let editCloseButton = document.querySelector('.edit-popup__close-button');
-let addCloseButton = document.querySelector('.add-popup__close-button');
-let zoomCloseButton = document.querySelector('.zoom-picture__close-button');
-let formElementEdit = document.querySelector('.edit-popup__form');
-let formElementAdd = document.querySelector('.add-popup__form'); 
-let nameInput = document.querySelector('.popup__content-form-input_type_name');
-let jobInput = document.querySelector('.popup__content-form-input_type_job');
-let namePlaceInput = document.querySelector('.popup__content-form-input_type_name-place');
-let urlPlaceInput = document.querySelector('.popup__content-form-input_type_url');
-let nameValue = document.querySelector('.profile__name');
-let jobValue = document.querySelector('.profile__description');
-let zoomPictureCard = document.querySelector('.zoom-picture__card');
-let zoomPictureCardTitle = document.querySelector('.zoom-picture__card-title');
+const editButton = document.querySelector('.profile__edit');
+const addButton = document.querySelector('.profile__add-card');
+const editPopup = document.querySelector('.edit-popup');
+const addPopup = document.querySelector('.add-popup');
+const zoomPopup = document.querySelector('.zoom-picture');
+const editCloseButton = document.querySelector('.edit-popup__close-button');
+const addCloseButton = document.querySelector('.add-popup__close-button');
+const zoomCloseButton = document.querySelector('.zoom-picture__close-button');
+const formElementEdit = document.querySelector('.edit-popup__form');
+const formElementAdd = document.querySelector('.add-popup__form'); 
+const nameInput = document.querySelector('.popup__content-form-input_type_name');
+const jobInput = document.querySelector('.popup__content-form-input_type_job');
+const namePlaceInput = document.querySelector('.popup__content-form-input_type_name-place');
+const urlPlaceInput = document.querySelector('.popup__content-form-input_type_url');
+const nameValue = document.querySelector('.profile__name');
+const jobValue = document.querySelector('.profile__description');
+const zoomPictureCard = document.querySelector('.zoom-picture__card');
+const zoomPictureCardTitle = document.querySelector('.zoom-picture__card-title');
 
 
 const initialCards = [
@@ -45,8 +45,8 @@ const initialCards = [
 	}
  ]; 
 
- let elementsCards = document.querySelector('.elements__cards');
- let cards = document.querySelector('#cards').content;
+ const elementsCards = document.querySelector('.elements__cards');
+ const cards = document.querySelector('#cards').content;
 
 
  function closePopup(popup) {
@@ -72,9 +72,9 @@ function formSubmitHandler (evt) {
 }
 
 
-let createPlaceCard = function (items){
-  let	elementsCard = cards.querySelector('.elements__card').cloneNode(true);
-  let pictureCard = elementsCard.querySelector('.elements__card-img');
+const createPlaceCard = function (items){
+	const	elementsCard = cards.querySelector('.elements__card').cloneNode(true);
+	const pictureCard = elementsCard.querySelector('.elements__card-img');
   pictureCard.src = items.link;
   pictureCard.alt = items.name;
   elementsCard.querySelector('.elements__card-title').textContent = items.name;
@@ -96,9 +96,9 @@ let createPlaceCard = function (items){
 };
 
 
-let addCard = function (evt) {
+const addCard = function (evt) {
 	evt.preventDefault();
-	let items = {};
+	const items = {};
 	items.link = urlPlaceInput.value;
 	items.name = namePlaceInput.value;
 	addNewCards (items);
@@ -106,15 +106,15 @@ let addCard = function (evt) {
 	formElementAdd.reset();
 };
 
-let likeCard = function(evt){
+const likeCard = function(evt){
 	evt.target.classList.toggle('elements__card-like-active');
 };
 
-let addNewCards = function(items){
+const addNewCards = function(items){
 	elementsCards.prepend(createPlaceCard(items));
 };
 
-let cardList = initialCards.map (function (items){
+const cardList = initialCards.map (function (items){
 	return createPlaceCard(items);
 }); 
 

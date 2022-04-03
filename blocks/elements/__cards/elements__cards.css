@@ -3,8 +3,7 @@
   margin: 0;
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
-  gap: 20px 0;
+  gap: 20px 17px;
   list-style: none;
 }
 
@@ -12,11 +11,5 @@
   .elements__cards {
     justify-content: center;
     gap: 20px;
-  }
-}
-
-@media screen and (max-width: 540px) {
-  .elements__cards {
-    gap: 20px 0;
   }
 }
