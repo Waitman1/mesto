@@ -47,20 +47,43 @@ const initialCards = [
 
  const elementsCards = document.querySelector('.elements__cards');
  const cards = document.querySelector('#cards').content;
+ const buttonAddSubmit = document.querySelector('.add-popup__submit');
+ const buttonEditSubmit = document.querySelector('.edit-popup__submit');
+ const formElementList = {
+	 inactiveButtonClass: 'popup__submit_inactive'
+ };
+
+ const closeEsc = (evt) => {
+	 if (evt.key === 'Escape') {
+		const popupOpened = document.querySelector('.popup_opened');
+      closePopup(popupOpened);
+	 }
+ }
+
+
+
+ function closePopupOverlayClick (evt) {
+	if (evt.target.classList.contains('popup_opened')){
+		closePopup(evt.target);
+	}
+ }
 
 
  function closePopup(popup) {
 	popup.classList.remove('popup_opened');
+	document.removeEventListener('keyup', closeEsc);
  }
 
  function openPopup(popup) {
 		popup.classList.add('popup_opened');
+		document.addEventListener('keyup', closeEsc);
 }
 
 
 function openEditPopup(){
 	nameInput.value = nameValue.textContent;
 	jobInput.value = jobValue.textContent;
+	activeButtonElement(buttonEditSubmit, formElementList);
 	openPopup(editPopup)
 }
 
@@ -77,15 +100,14 @@ const createPlaceCard = function (items){
 	const pictureCard = elementsCard.querySelector('.elements__card-img');
   pictureCard.src = items.link;
   pictureCard.alt = items.name;
-  elementsCard.querySelector('.elements__card-title').textContent = items.name;
-  
-  elementsCard.querySelector('.elements__card-like').addEventListener ('click', likeCard);
 
+  elementsCard.querySelector('.elements__card-title').textContent = items.name;
+  elementsCard.querySelector('.elements__card-like').addEventListener ('click', likeCard);
   elementsCard.querySelector('.elements__card-delete').addEventListener ('click', function(){
    elementsCard.remove();
   });
 
-  elementsCard.querySelector('.elements__card-zoom-button').addEventListener ('click', function(){
+  pictureCard.addEventListener ('click', function(){
    zoomPictureCard.src = items.link;
 	zoomPictureCard.alt = items.link;
 	zoomPictureCardTitle.textContent = items.name;
@@ -133,9 +155,19 @@ zoomCloseButton.addEventListener('click', function() {
 	closePopup(zoomPopup);
 });
 
-editButton.addEventListener('click', openEditPopup);
-addButton.addEventListener('click', function(){
+editButton.addEventListener('click', () => {
+	openEditPopup();
+});
+
+addButton.addEventListener('click', () =>{
+	disableButtonElement( buttonAddSubmit, formElementList);
 	openPopup(addPopup);
 });
+
 formElementEdit.addEventListener('submit', formSubmitHandler);
 formElementAdd.addEventListener('submit', addCard);
+
+addPopup.addEventListener('click', closePopupOverlayClick);
+editPopup.addEventListener('click', closePopupOverlayClick);
+zoomPopup.addEventListener('click', closePopupOverlayClick);
+
