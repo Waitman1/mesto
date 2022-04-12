@@ -9,5 +9,6 @@
   align-items:center;
   opacity: 0;
   visibility: hidden;
-  transition: visibility 0.02s linear;
+  transition: .55s opacity, .55s visibility;
+  display: flex;
 }

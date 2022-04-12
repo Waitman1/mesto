@@ -95,22 +95,22 @@ function formSubmitHandler (evt) {
 }
 
 
-const createPlaceCard = function (items){
+const createPlaceCard = function (addNewCards){
 	const	elementsCard = cards.querySelector('.elements__card').cloneNode(true);
 	const pictureCard = elementsCard.querySelector('.elements__card-img');
-  pictureCard.src = items.link;
-  pictureCard.alt = items.name;
+  pictureCard.src = addNewCards.link;
+  pictureCard.alt = addNewCards.name;
 
-  elementsCard.querySelector('.elements__card-title').textContent = items.name;
+  elementsCard.querySelector('.elements__card-title').textContent = addNewCards.name;
   elementsCard.querySelector('.elements__card-like').addEventListener ('click', likeCard);
   elementsCard.querySelector('.elements__card-delete').addEventListener ('click', function(){
    elementsCard.remove();
   });
 
   pictureCard.addEventListener ('click', function(){
-   zoomPictureCard.src = items.link;
-	zoomPictureCard.alt = items.link;
-	zoomPictureCardTitle.textContent = items.name;
+   zoomPictureCard.src = addNewCards.link;
+	zoomPictureCard.alt = addNewCards.link;
+	zoomPictureCardTitle.textContent = addNewCards.name;
 	openPopup(zoomPopup);
   });
 
@@ -120,10 +120,7 @@ const createPlaceCard = function (items){
 
 const addCard = function (evt) {
 	evt.preventDefault();
-	const items = {};
-	items.link = urlPlaceInput.value;
-	items.name = namePlaceInput.value;
-	addNewCards (items);
+	addNewCards({ name: namePlaceInput.value, link: urlPlaceInput.value  }) 
 	closePopup(addPopup);
 	formElementAdd.reset();
 };
