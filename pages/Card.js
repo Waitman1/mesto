@@ -1,10 +1,14 @@
 import { openPopup} from './index.js'
+import { zoomPopup} from './index.js'
 
 export class Card {
-	constructor (name, link, cardSelector) {
+	constructor (name, link, cardSelector, ) {
 		this._name = name;
 		this._link = link;
 		this._cardSelector = cardSelector;
+		this._zoomPicture = document.querySelector('.zoom-picture__card');
+		this._zoomPictureTitle = document.querySelector('.zoom-picture__card-title');
+	
 	}
 
  _getTemplate() {
@@ -52,10 +56,10 @@ this._element = null;
 }
 
 _zoomPopup () {
-document.querySelector('.zoom-picture__card').src= this._link;
-document.querySelector('.zoom-picture__card').alt =  this._name;
-document.querySelector('.zoom-picture__card-title').textContent = this._name;
-openPopup (document.querySelector('.zoom-picture'));
+	this._zoomPicture.src= this._link;
+	this._zoomPicture.alt =  this._name;
+	this._zoomPictureTitle.textContent = this._name;
+openPopup(zoomPopup);
  }
 }
 

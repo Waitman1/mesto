@@ -6,7 +6,7 @@ const editButton = document.querySelector('.profile__edit');
 const addButton = document.querySelector('.profile__add-card');
 const editPopup = document.querySelector('.edit-popup');
 const addPopup = document.querySelector('.add-popup');
-const zoomPopup = document.querySelector('.zoom-picture');
+export const zoomPopup = document.querySelector('.zoom-picture');
 const editCloseButton = document.querySelector('.edit-popup__close-button');
 const addCloseButton = document.querySelector('.add-popup__close-button');
 const zoomCloseButton = document.querySelector('.zoom-picture__close-button');
@@ -117,6 +117,9 @@ const addCard = function (evt) {
   addNewCards (items);
   closePopup(addPopup);
 };
+
+
+
 
 editCloseButton.addEventListener('click', function () {
   closePopup(editPopup);
