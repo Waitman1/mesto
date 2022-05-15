@@ -5,16 +5,18 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Mesto</title>
-    <link rel="stylesheet" href="./pages/index.css" />
   </head>
   <body class="root">
     <header class="header">
-      <img class="header__logo" alt="Лого" src="./images/logo.svg" />
+      <img class="header__logo" alt="Лого" src="<%=require('./images/logo.svg')%>" />
     </header>
     <main class="content">
       <section class="profile">
-        <img class="profile__photo" src="./images/user-profile.jpg" alt="Фото профиля" />
-
+        <img
+          class="profile__photo"
+          src="<%=require('./images/user-profile.jpg')%>"
+          alt="Фото профиля"
+        />
         <div class="profile__info">
           <div class="profile__row">
             <h1 class="profile__name">Жак-Ив Кусто</h1>
@@ -23,7 +25,7 @@
           <p class="profile__description">Исследователь океана</p>
         </div>
         <button type="button" class="profile__add-card">
-          <img src="./images/add-card.svg" alt="Добавить карточку" />
+          <img src="<%=require('./images/add-card.svg')%>" alt="Добавить карточку" />
         </button>
       </section>
 
@@ -120,7 +122,5 @@
         <button class="elements__card-delete" type="button" aria-label="Урна"></button>
       </li>
     </template>
-
-    <script type="module" src="./pages/index.js"></script>
   </body>
 </html>
