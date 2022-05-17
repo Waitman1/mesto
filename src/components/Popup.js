@@ -15,8 +15,7 @@ export class Popup {
 
   _handleEsc = (evt) => {
     if (evt.key === 'Escape') {
-      const popupOpened = document.querySelector('.popup_opened');
-      this.close(popupOpened);
+      this.close();
     }
   };
 
@@ -24,6 +23,11 @@ export class Popup {
     const closeButton = this._popup.querySelector('.popup__close');
     closeButton.addEventListener('click', () => {
       this.close();
+    });
+    this._popup.addEventListener('click', (evt) => {
+      if (evt.target.classList.contains('popup_opened')) {
+        this.close(evt.target);
+      }
     });
   }
 }
