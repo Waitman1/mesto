@@ -3,6 +3,7 @@ export const addButton = document.querySelector('.profile__add-card');
 export const formElementEdit = document.querySelector('.edit-popup__form');
 export const formElementAdd = document.querySelector('.add-popup__form');
 export const formElementEditAvatar = document.querySelector('.edit-avatar-popup__form');
+
 export const userInf = {
   nameValueSelector: '.profile__name',
   jobValueSelector: '.profile__description',
@@ -17,4 +18,12 @@ export const formElementList = {
   inactiveButtonClass: 'popup__submit_inactive',
   inputErrorClass: 'popup__content-form-input_error',
   errorTextClass: 'popup__content-form-input-text-error',
+};
+
+export const formSelectortList = {
+  deletePopupForm: '.delete-popup',
+  addPopup: '.add-popup',
+  editPopup: '.edit-popup',
+  editAvatarPopupForm: '.edit-avatar-popup',
+  places: '.elements__cards',
 };

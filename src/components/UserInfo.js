@@ -17,4 +17,5 @@ export class UserInfo {
     this._jobValue.textContent = data.about;
     this._avatar.src = data.avatar;
   }
+
 }

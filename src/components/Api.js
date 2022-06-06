@@ -56,21 +56,19 @@ export class Api {
     }).then((res) => this.handleResponse(res));
   }
 
-  likeCard(data, id) {
+  likeCard(id) {
     const cardId = id;
     return fetch(`${this._baseUrl}/cards/${cardId}/likes`, {
       method: 'PUT',
       headers: this._headers,
-      body: JSON.stringify(data),
     }).then((res) => this.handleResponse(res));
   }
 
-  disLikeCard(data, id) {
+  disLikeCard(id) {
     const cardId = id;
     return fetch(`${this._baseUrl}/cards/${cardId}/likes`, {
       method: 'DELETE',
       headers: this._headers,
-      body: JSON.stringify(data),
     }).then((res) => this.handleResponse(res));
   }
 }

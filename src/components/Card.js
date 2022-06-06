@@ -25,6 +25,10 @@ export class Card {
     return cardElement;
   }
 
+  removeLike() {
+    this._likeCounter.textContent = this._likes.length;
+  }
+
   generateCard() {
     this._element = this._getTemplate();
     this._cardImage = this._element.querySelector('.elements__card-image');
@@ -34,10 +38,6 @@ export class Card {
     this._like = this._element.querySelector('.elements__card-like-button');
     this._likeCounter = this._element.querySelector('.elements__card-like-counter');
     this._likeCounter.textContent = this._likes.length;
-
-    if (this._findLike()) {
-      this._like.classList.add('elements__card-like-button-active');
-    }
 
     this._deleteCardButton = this._element.querySelector('.elements__card-delete-button');
     if (this._userId === this._owner._id) {
@@ -49,14 +49,27 @@ export class Card {
     return this._element;
   }
 
+  findLike() {
+    return Boolean(this._likes.find((item) => item._id === this._userId));
+  }
+
+  updateLikesView(setNewLike) {
+    this._likes = setNewLike;
+    this._element.querySelector('.elements__card-like-counter').textContent = this._likes.length;
+
+    if (this.findLike())
+      this._element
+        .querySelector('.elements__card-like-button')
+        .classList.add('elements__card-like-button-active');
+    else
+      this._element
+        .querySelector('.elements__card-like-button')
+        .classList.remove('elements__card-like-button-active');
+  }
+
   _setEventListeners() {
     this._like.addEventListener('click', () => {
-      this._like = !this._like;
-      if (!this._like) {
-        this._likeCards(this._element, this._id, this._likeCounter);
-      } else {
-        this._disLikeCards(this._element, this._id, this._likeCounter);
-      }
+      this._likeCards(this._element, this._id, this._likeCounter);
     });
 
     this._deleteCardButton.addEventListener('click', () => {
@@ -66,13 +79,5 @@ export class Card {
     this._cardImage.addEventListener('click', () => {
       this._handleCardClick(this._name, this._link);
     });
-  }
-
-  _findLike() {
-    for (let i = 0; i < this._likes.length; i++) {
-      if (this._likes[i]._id === this._userId) {
-        return true;
-      }
-    }
   }
 }

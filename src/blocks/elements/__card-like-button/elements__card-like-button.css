@@ -7,6 +7,8 @@
 	background-color: white;
 	transition: 0.2s linear;
 	cursor: pointer;
+	background-repeat: no-repeat;
+	
 }
 
 .elements__card-like:hover {

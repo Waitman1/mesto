@@ -17,6 +17,7 @@ import {
   userInf,
   nameInput,
   jobInput,
+  formSelectortList,
 } from '../utils/constants.js';
 import { PopupDeleteImage } from '../components/PopupDeleteImage.js';
 
@@ -61,7 +62,7 @@ const deletePopup = new PopupDeleteImage(
         });
     },
   },
-  '.delete-popup',
+  formSelectortList.deletePopupForm,
 );
 deletePopup.setEventListeners();
 
@@ -75,33 +76,22 @@ const createNewCard = function creatNewCard(data) {
       deleteCardPopup: (cardElement, id) => {
         deletePopup.open(cardElement, id);
       },
-      likeCards: (cardElement, id) => {
-        api
-          .likeCard(cardElement, id)
-          .then((data) => {
-            cardElement
-              .querySelector('.elements__card-like-button')
-              .classList.add('elements__card-like-button-active');
-            cardElement.querySelector('.elements__card-like-counter').textContent =
-              data.likes.length;
-          })
-          .catch((err) => {
-            console.log(err);
-          });
-      },
-      disLikeCards: (cardElement, id) => {
-        api
-          .disLikeCard(cardElement, id)
-          .then((data) => {
-            cardElement
-              .querySelector('.elements__card-like-button')
-              .classList.remove('elements__card-like-button-active');
-            cardElement.querySelector('.elements__card-like-counter').textContent =
-              data.likes.length;
-          })
-          .catch((err) => {
-            console.log(err);
-          });
+      likeCards: () => {
+        if (card.findLike()) {
+          api
+            .disLikeCard(data._id)
+            .then((res) => {
+              card.updateLikesView(res.likes);
+            })
+            .catch((err) => console.log(err));
+        } else {
+          api 
+            .likeCard(data._id)
+            .then((res) => {
+              card.updateLikesView(res.likes);
+            })
+            .catch((err) => console.log(err));
+        }
       },
     },
     userId,
@@ -119,7 +109,7 @@ const creatCard = new Section(
       creatCard.addItem(cardFromWeb);
     },
   },
-  '.elements__cards',
+  formSelectortList.places,
 );
 
 function editProfile() {
@@ -149,7 +139,7 @@ const popupWithFormAdd = new PopupWithForm(
         });
     },
   },
-  '.add-popup',
+  formSelectortList.addPopup,
 );
 popupWithFormAdd.setEventListeners();
 
@@ -171,7 +161,7 @@ const popupWithFormEdit = new PopupWithForm(
         });
     },
   },
-  '.edit-popup',
+  formSelectortList.editPopup,
 );
 popupWithFormEdit.setEventListeners();
 
@@ -191,7 +181,7 @@ const editAvatarPopup = new PopupWithForm(
       api
         .updateUserAvatar(data)
         .then((data) => {
-          document.querySelector(userInf.avatarSelector).src = data.avatar;
+          createUserInfo.setUserInfo(data);
           editAvatarPopup.close();
         })
         .catch((err) => {
@@ -202,7 +192,7 @@ const editAvatarPopup = new PopupWithForm(
         });
     },
   },
-  '.edit-avatar-popup',
+  formSelectortList.editAvatarPopupForm,
 );
 editAvatarPopup.setEventListeners();
 
